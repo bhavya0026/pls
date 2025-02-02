@@ -7,8 +7,14 @@ import img5 from './f5.jpg';
 import img6 from './f6.jpg';
 import img7 from './f7.webp';
 import img8 from './f8.jpg';
+import { useNavigate } from 'react-router-dom'; 
 
 const ProductList = () => {
+  const navigate = useNavigate(); // Initialize navigation function
+
+  const open = () => {
+    navigate('./Product');
+  };
   const products = [
     { id: 1, name: "3D Miniature Frame", price: "RS 2,850.00", image: img1 },
     { id: 2, name: "Music Plaque", price: "RS 550.00", image: img2, sale: true },
@@ -21,63 +27,71 @@ const ProductList = () => {
   ];
 
   const styles = {
-    container: {
-      
+    productSection: {
+      padding: '40px 10%',
+      textAlign: 'center',
+    },
+    heading: {
+      fontSize: '28px',
+      marginBottom: '20px',
+    },
+    productGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '50px',
-      padding: '50px',
+      gap: '20px',
+      justifyContent: 'center',
     },
     productCard: {
-      border: '3px solid #ddd',
+      backgroundColor: '#fff',
       borderRadius: '10px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
       padding: '15px',
       textAlign: 'center',
-      backgroundColor: '#fff',
-      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
     },
-    productImage: {
+    image: {
       width: '100%',
-      borderRadius: '20px',
+      height: '200px',
+      objectFit: 'cover',
+      borderRadius: '10px',
     },
     productName: {
       fontSize: '18px',
+      margin: '10px 0',
+    },
+    price: {
+      color: '#c29872',
       fontWeight: 'bold',
+    },
+    button: {
+      background: 'none',
+      border: 'none',
+      cursor: 'pointer',
       marginTop: '10px',
     },
-    productPrice: {
-      fontSize: '16px',
-      color: '#c29872',
-      marginTop: '5px',
-    },
-    saleBadge: {
-      position: 'absolute',
-      top: '10px',
-      left: '10px',
-      backgroundColor: 'black',
-      color: 'white',
-      padding: '5px 10px',
-      borderRadius: '5px',
-      fontSize: '12px',
-    },
-    productWrapper: {
-      position: 'relative',
+    buttonImage: {
+      width: '40px', // Adjust size as needed
+      height: '40px',
     },
   };
+  
 
   return (
-    <div style={styles.container}>
-      {products.map((product) => (
-        <div key={product.id} style={styles.productCard}>
-          <div style={styles.productWrapper}>
-            {product.sale && <span style={styles.saleBadge}>Sale</span>}
-            <img src={product.image} alt={product.name} style={styles.productImage} />
+    <section style={styles.productSection}>
+      <div style={styles.productGrid}>
+        {products.map((product) => (
+             <button style={styles.button} onClick={open}>
+          <div key={product.id} style={styles.productCard}>
+            <img src={product.image} alt={product.name} style={styles.image} />
+            <h3 style={styles.productName}>{product.name}</h3>
+            <p style={styles.price}>{product.price}</p>
+         
+             
+           
           </div>
-          <h3 style={styles.productName}>{product.name}</h3>
-          <p style={styles.productPrice}>{product.price}</p>
-        </div>
-      ))}
-    </div>
+          </button>
+        ))}
+      </div>
+    </section>
   );
 };
 
