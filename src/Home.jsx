@@ -2,6 +2,7 @@ import React from 'react';
 import ProductList from './ProductList';
 import img1 from './img9.png';
 import myImage from './img6.png';
+//import hero from './hero.png';
 //import {img} from 'react-image'
 
 const HomePage = () => {
@@ -16,17 +17,18 @@ const HomePage = () => {
       position: 'relative',
       width: '100%',
       height: '40vh', // Adjust the height as needed
-      // backgroundImage: img1, // Replace with your image path
+      backgroundImage: 'url(./hero.png)', // Set background image path
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
       display: 'flex',
       alignItems: 'center',
-      padding: '0 10%', // Moves content to the left
-      color: 'white',
-      textAlign: 'left',
+      justifyContent: 'flex-start', // Moves content to left
+      paddingLeft: '10%', // Adjust left spacing
     },
-    content: {
+    overlay: {
       maxWidth: '500px', // Restrict width for better readability
+      color: 'black',
     },
     title: {
       fontSize: '40px',
@@ -40,7 +42,7 @@ const HomePage = () => {
     button: {
       background: '#c29872',
       color: 'white',
-      padding: '11px 24px',
+      padding: '12px 24px',
       fontSize: '16px',
       border: 'none',
       borderRadius: '5px',
@@ -67,7 +69,7 @@ const HomePage = () => {
     <div style={styles.homeContainer}>
       {/* Hero Section */}
       <section style={styles.heroSection}>
-      <div style={styles.content}>
+      <div style={styles.overlay}>
         <h1 style={styles.title}>Where Your Dreams Become Tangible Treasures</h1>
         <p style={styles.subtitle}>Crafting uniqueness in every package</p>
         <button style={styles.button}>Learn More</button>
