@@ -1,14 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
-//import Login from './Login'
+import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 const Header = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
-  const handleLearnMoreClick = () => {
-    navigate('./Login');
+  const handleLoginClick = () => {
+    navigate('/login'); 
   };
+
   return (
     <>
       {/* Top Strip */}
@@ -21,7 +21,7 @@ const Header = () => {
         {/* Left: Logo */}
         <div style={styles.logoContainer}>
           <img
-            src="https://via.placeholder.com/150x50?text=Logo" // Replace with your logo URL
+            src="https://via.placeholder.com/150x50?text=Logo"
             alt="Logo"
             style={styles.logo}
           />
@@ -29,22 +29,15 @@ const Header = () => {
 
         {/* Center: Search Bar */}
         <div style={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="Search..."
-            style={styles.searchInput}
-          />
+          <input type="text" placeholder="Search..." style={styles.searchInput} />
         </div>
 
         {/* Right: Icons */}
         <div style={styles.iconsContainer}>
           <FaShoppingCart style={styles.icon} title="Cart" />
-          <FaUser style={styles.icon} title="Account" onClick={handleLearnMoreClick} />
+          <FaUser style={styles.icon} title="Account" onClick={handleLoginClick} />
         </div>
       </header>
-
-      {/* Login Modal */}
-      
     </>
   );
 };
@@ -63,7 +56,9 @@ const styles = {
   header: {
     display: 'flex',
     alignItems: 'center',
-    padding: '20px 20px',
+    justifyContent: 'space-between', 
+    flexWrap: 'wrap', 
+    padding: '20px',
     backgroundColor: '#fff',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   },
@@ -95,7 +90,11 @@ const styles = {
   icon: {
     fontSize: '24px',
     cursor: 'pointer',
+    transition: 'transform 0.2s ease-in-out',
   },
 };
+
+// Hover effects
+styles.icon[':hover'] = { transform: 'scale(1.1)' };
 
 export default Header;
