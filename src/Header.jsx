@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 const Header = () => {
-  const navigate = useNavigate(); // Initialize navigation function
+  const navigate = useNavigate(); 
 
   const handleLearnMoreClick = () => {
     navigate('./Login');

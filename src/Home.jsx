@@ -2,8 +2,7 @@ import React from 'react';
 import ProductList from './ProductList';
 import img1 from './img9.png';
 import myImage from './img6.png';
-//import hero from './hero.png';
-//import {img} from 'react-image'
+import hero from './hero.jpg';
 
 const HomePage = () => {
   const styles = {
@@ -11,24 +10,25 @@ const HomePage = () => {
       fontFamily: 'Arial, sans-serif',
       backgroundColor: '#f9f9f9',
       padding: '20px',
-      
     },
     heroSection: {
       position: 'relative',
       width: '100%',
-      height: '40vh', // Adjust the height as needed
-      backgroundImage: 'url(./hero.png)', // Set background image path
+      height: '60vh',
+      backgroundImage: `url(${hero})`, 
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'flex-start', // Moves content to left
-      paddingLeft: '10%', // Adjust left spacing
+      justifyContent: 'flex-start',
+      paddingLeft: '10%',
+      color: 'white',
     },
     overlay: {
-      maxWidth: '500px', // Restrict width for better readability
-      color: 'black',
+      maxWidth: '500px',
+      color: 'white',
+      padding: '20px',
     },
     title: {
       fontSize: '40px',
@@ -63,53 +63,74 @@ const HomePage = () => {
       color: '#666',
       marginBottom: '20px',
     },
+    image: {
+      maxWidth: '100%',
+      height: 'auto',
+    },
+    videoContainer: {
+      textAlign: 'center',
+      padding: '50px 20px',
+    },
+    iframe: {
+      width: '100%',
+      height: '400px',
+      maxWidth: '800px',
+    },
+    buttonContainer: {
+      textAlign: 'center',
+      marginTop: '10px',
+    },
+    giftContainer: {
+      textAlign: 'center',
+      padding: '20px',
+    },
   };
 
   return (
     <div style={styles.homeContainer}>
       {/* Hero Section */}
       <section style={styles.heroSection}>
-      <div style={styles.overlay}>
-        <h1 style={styles.title}>Where Your Dreams Become Tangible Treasures</h1>
-        <p style={styles.subtitle}>Crafting uniqueness in every package</p>
-        <button style={styles.button}>Learn More</button>
-      </div>
-    </section>
+        <div style={styles.overlay}>
+          <h1 style={styles.title}>Where Your Dreams Become Tangible Treasures</h1>
+          <p style={styles.subtitle}>Crafting uniqueness in every package</p>
+          <button style={styles.button}>Learn More</button>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section style={styles.servicesSection}>
         <h2 style={styles.sectionTitle}>Featured Product</h2>
-
-        {/* Product List (Service Section) */}
         <ProductList />
       </section>
 
-      
-
+      {/* Easy Steps Section */}
       <section style={styles.servicesSection}>
-      <h2 style={styles.sectionTitle}>Easy steps to your perfect gifts</h2>
-      <img src={img1} alt="Description of image" />
+        <h2 style={styles.sectionTitle}>Easy Steps to Your Perfect Gifts</h2>
+        <img src={img1} alt="Steps to order" style={styles.image} />
+      </section>
 
+      {/* Ready to Create Section */}
+      <section style={styles.giftContainer}>
+        <h2 style={styles.sectionTitle}>Ready to Create Your Own Gifts?</h2>
+        <h4 style={styles.subtitle}>No codes, prepaid orders only</h4>
+        <p>Join happy customers who turned their dreams into reality</p>
+        <div style={styles.buttonContainer}>
+          <button style={styles.button}>Get Started</button>
+        </div>
+        <img src={myImage} alt="Gift creation process" style={styles.image} />
+      </section>
 
-      <h2 style={styles.sectionTitle}>Ready to create your kwn Gifts?</h2>
-      <h4 style={styles.subtitle}>No cods, prepaid orders only</h4>
-      <p style={{textAlign:'center', padding:'10px', justifyContent:'left' }}>Join happy customers who<br /> truned their derams into reality  <button style={styles.button}>Get Started</button> </p>
-      <img src={myImage}  alt="Description of image" />
-
-      </ section>
-      
-      {/*video section*/ }
-      <div style={{ textAlign: 'center', padding: '50px' }}>
-      <iframe
-        width="100%"
-        height="400"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-        title="YouTube Video"
-        frameBorder="0"
-        allow="autoplay; encrypted-media"
-        allowFullScreen
-      ></iframe>
-    </div>
+      {/* Video Section */}
+      <div style={styles.videoContainer}>
+        <iframe
+          style={styles.iframe}
+          src="https://www.youtube.com/watch?v=UXkKNrU6-9A" 
+          title="YouTube Video"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        ></iframe>
+      </div>
     </div>
   );
 };

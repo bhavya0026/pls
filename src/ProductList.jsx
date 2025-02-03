@@ -8,9 +8,10 @@ import img6 from './f6.jpg';
 import img7 from './f7.webp';
 import img8 from './f8.jpg';
 import { useNavigate } from 'react-router-dom'; 
+// import Product from './Product';
 
 const ProductList = () => {
-  const navigate = useNavigate(); // Initialize navigation function
+  const navigate = useNavigate(); 
 
   const open = () => {
     navigate('./Product');
@@ -69,7 +70,7 @@ const ProductList = () => {
       marginTop: '10px',
     },
     buttonImage: {
-      width: '40px', // Adjust size as needed
+      width: '40px', 
       height: '40px',
     },
   };
