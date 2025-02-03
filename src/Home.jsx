@@ -10,10 +10,10 @@ const HomePage = () => {
       fontFamily: 'Arial, sans-serif',
       backgroundColor: '#f9f9f9',
       padding: '20px',
+      overflowX: 'hidden', 
     },
     heroSection: {
       position: 'relative',
-      width: '100%',
       height: '60vh',
       backgroundImage: `url(${hero})`, 
       backgroundSize: 'cover',
@@ -47,6 +47,10 @@ const HomePage = () => {
       border: 'none',
       borderRadius: '5px',
       cursor: 'pointer',
+      transition: '0.3s',
+    },
+    buttonHover: {
+      background: '#b28563',
     },
     servicesSection: {
       textAlign: 'center',
@@ -64,7 +68,7 @@ const HomePage = () => {
       marginBottom: '20px',
     },
     image: {
-      maxWidth: '100%',
+      maxWidth: '100%', 
       height: 'auto',
     },
     videoContainer: {
@@ -75,6 +79,7 @@ const HomePage = () => {
       width: '100%',
       height: '400px',
       maxWidth: '800px',
+      border: 'none',
     },
     buttonContainer: {
       textAlign: 'center',
@@ -93,7 +98,13 @@ const HomePage = () => {
         <div style={styles.overlay}>
           <h1 style={styles.title}>Where Your Dreams Become Tangible Treasures</h1>
           <p style={styles.subtitle}>Crafting uniqueness in every package</p>
-          <button style={styles.button}>Learn More</button>
+          <button 
+            style={styles.button}
+            onMouseEnter={(e) => e.target.style.background = styles.buttonHover.background}
+            onMouseLeave={(e) => e.target.style.background = styles.button.background}
+          >
+            Learn More
+          </button>
         </div>
       </section>
 
@@ -115,7 +126,13 @@ const HomePage = () => {
         <h4 style={styles.subtitle}>No codes, prepaid orders only</h4>
         <p>Join happy customers who turned their dreams into reality</p>
         <div style={styles.buttonContainer}>
-          <button style={styles.button}>Get Started</button>
+          <button 
+            style={styles.button}
+            onMouseEnter={(e) => e.target.style.background = styles.buttonHover.background}
+            onMouseLeave={(e) => e.target.style.background = styles.button.background}
+          >
+            Get Started
+          </button>
         </div>
         <img src={myImage} alt="Gift creation process" style={styles.image} />
       </section>
@@ -124,9 +141,8 @@ const HomePage = () => {
       <div style={styles.videoContainer}>
         <iframe
           style={styles.iframe}
-          src="https://www.youtube.com/watch?v=UXkKNrU6-9A" 
+          src="https://www.youtube.com/embed/UXkKNrU6-9A" 
           title="YouTube Video"
-          frameBorder="0"
           allow="autoplay; encrypted-media"
           allowFullScreen
         ></iframe>
